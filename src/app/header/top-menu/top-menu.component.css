@@ -6,3 +6,7 @@
   /* padding-right:30px; */
 
 }
+.active{
+  font-size: 18px;
+  font-weight: bold;
+}

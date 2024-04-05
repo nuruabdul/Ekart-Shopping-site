@@ -1,7 +1,6 @@
 
  .ekart-menu{
-  padding-top: 2vh;
-  padding: 1vh 1vh;
+
   color: #36454F;
   font-family: 'Montserrat', sans-serif;
   font-weight:normal;
@@ -9,5 +8,9 @@
   width:auto;
   align-items: center;
   text-align: center;
-
+  display: flex; /* Add display flex */
+  justify-content: center; /* Center align items horizontally */
+}
+.ekart-menu a {
+  display: inline-block; /* Display the links as inline-block */
 }

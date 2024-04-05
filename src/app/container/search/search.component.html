@@ -1,0 +1,18 @@
+<!-- Two way data binding .
+-->
+<!-- When the user types,it is also displayed in the view, using (input) & [value]=search text  or using ngModel-->
+<div class="ekart--search--product">
+    <!-- <input class="ekart-search-product-input"  [value]="searchText" (input)="updateSearchText($event)">  Or-->
+    <input class="ekart-search-product-input"   type="text" [(ngModel)]="enteredSearchValue" input="onSearchTextChanged()">
+     <button [ngClass]="{'btn': true, 'btn-search': enteredSearchValue, 'btn-search-disabled': !enteredSearchValue}" [disabled]="!enteredSearchValue">Search</button>
+    </div>
+<div class="ekart-search-result-for">
+    <p *ngIf="enteredSearchValue!= ''"><strong>Search result for:</strong>{{ enteredSearchValue }}</p>
+    </div>
+   
+
+<!-- <div class="ekart-product-container-header"><h2>SHOES</h2></div> -->
+<!-- <div class="ekart--products--container "></div> -->
+
+
+<!-- false, '', null, undefined, 0 -->

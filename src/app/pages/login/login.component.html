@@ -1,0 +1,22 @@
+<!-- <app-login></app-login> -->
+<div class="parent">
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form class="validate-form"  (ngSubmit)="onSubmit()">
+                <div class="input-box">
+                    <input type="email" [(ngModel)]="EmailId" name="EmailId" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" [(ngModel)]="Password" name="Password" required>
+                    <label>Password</label>
+                </div>
+                
+                <button type="button" class="btn" type="submit" (click)="onSubmit()" >Login</button>
+                
+            </form>
+        </div>
+        
+    </div>
+</div>

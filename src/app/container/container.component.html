@@ -1,0 +1,51 @@
+<app-topheader></app-topheader>
+<app-header></app-header>
+
+<div class="ekart-product--container">
+
+<!-- <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>     -->
+   <!-- Event binding  -->
+
+  <product-list ></product-list>           
+     <!-- Property binding -->   
+
+
+ <img [src]="product.pImage">
+ <p>Name:{{product.name}}</p>   <!-- String interpolation -->
+<p>Price:{{'$' + product.price }}</p>
+<p>Color:{{ product.color}}</p>
+<p>Discounted Price: {{ getDiscountedPrice().toFixed(2)}}</p>
+<p>{{ product.inStock > 0 ? 'Only' + product.inStock + 'items left': 'Not in Stock'}}</p>   
+<button [disabled]="!(product.inStock > 0)">Buy Now</button>   
+ <!--Property binding  -->
+<button (click)="decrementCartValue()">-</button>
+<span>{{ addToCart}}</span>
+<button (click)="incrementCartValue()">+</button>
+<br>
+<!-- <div *ngFor="let item of [2,3,4,5,6,7]"> -->
+<div *ngFor="let item of listOfString">
+   <p>Current element of array is: {{ item }}</p>
+    </div>
+  
+  </div>
+
+
+<!-- <input (input)="onNameChange($event)"><br>
+<p>name={{name}}</p> -->
+
+
+
+<!-- <br><input bind-value="name" [attr.aria-hidden]> -->
+
+<!-- (value)="name" -->
+
+           
+
+<!-- One way data binding.
+    For Html attributes like disabled, Hidden and checked, string interpolation will not work.Use property binding -->
+<!-- Display Some data in html- Use string interpolation -->
+<!--  Assign some dynamic values to an html attribute, use property binding. -->
+<!-- Html attribute rep the initial value,does not change,
+html property rep. current property and can change. 
+Accesibility attribute:- aria-label  aria-hidden aria-expanded aria-control
+Data attributes:-data-id data-name data-value colspan-->
