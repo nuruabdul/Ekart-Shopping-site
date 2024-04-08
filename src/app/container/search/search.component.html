@@ -25,8 +25,8 @@
                                            A Template Reference Variable is a var which stores a reference to a DOM element,component or directive on which it is used.-->
                                            <!-- The e.g below shows how template ref.var was used on a html element. -->
 <div class="ekart--search--product">
-    <input class="ekart-search-product-input"   #searchInput (input)="updateSearchText(searchInput)" >
-    <button class="btn btn-search" (click)="updateSearchText(searchInput)">Search</button>
+    <input class="ekart-search-product-input"   #searchInput >
+    <button class="btn btn-search" (click)="updateSearchText()">Search</button>
 </div>
 <div class="ekart-search-result-for">
     <p *ngIf="searchText!= ''"><strong>Search result for:</strong>{{ searchText }}</p>

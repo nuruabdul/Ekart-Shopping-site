@@ -17,6 +17,7 @@
     background-color: white;
     transition: 1s;
     width: 480px;
+    height:500px;
     top: 0;
     right: 0;
     bottom: 0;
@@ -31,7 +32,7 @@
 }
 .ekart-product-detail-image{
     width: 100%;
-    height: 320px;
+    height: 200px;
 }
 .ekart-product-detail{
     padding: 10px 0px;
@@ -85,6 +86,7 @@ span{
 }
 .ekart-product-detail-addtoCart{
     margin: 20px 0px;
+   
 }
 .btn-add-to-cart{
     border: none;
@@ -98,7 +100,7 @@ span{
     overflow-y: scroll;
 }
 .scroll::-webkit-scrollbar {
-    width:5px;
+    width:20px;
 }
 .scroll::-webkit-scrollbar-track {
     -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3); 

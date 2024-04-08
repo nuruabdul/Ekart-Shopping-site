@@ -13,5 +13,5 @@ export class Product{
     items_left: number;
     imageURL: string;
     slug: string;
-
+  
 }; 

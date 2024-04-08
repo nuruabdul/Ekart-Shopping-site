@@ -3,47 +3,66 @@
         <i class="fa fa-times" aria-hidden="true"></i>
     </div>
     <div class="ekart-product-detail-image">
-        <img src="https://images.vans.com/is/image/Vans/MV122M-HERO?$583x583$" class="ekart-product-detail-image">
+        <img [src]="product.imageURL" class="ekart-product-detail-image">
     </div>
-    
+
     <div class="ekart-product-detail">
         <div class="ekart-product-detail-name">
-            <h2>Michael Feburary SK8-Hi</h2>
+            <h2>{{product.name}}</h2>
         </div>
         <div class="ekart-product-detail-gbc">
-            <span>MEN</span>
-            <span>NIKE</span>
-            <span>SPORTS</span>
+            <span>{{product.gender}}</span>
+            <span>{{product.brand}}</span>
+            <span>{{product.category}}</span>
         </div>
         <div class="ekart-product-detail-price">
             <p>
-                <b>Price Each Pair:</b>
-                <span style="background-color: red; color:white"><s>$699</s></span>
-                <span style="background-color: green; color:white">$599</span> (Inclusive of all taxes)
+                <!-- Check if the product has a discount -->
+                <ng-container *ngIf="product.discountPrice !== undefined && product.discountPrice < product.price">
+                    <!-- If yes, display the discounted price -->
+                    <b>Price Each Pair:</b>
+                    <!-- Display the original price with strikethrough -->
+                    <span style="background-color: red; color:white"><s>{{ product.price }}</s></span>
+                    <!-- Display the discounted price -->
+                    <span style="background-color: green; color:white">{{ product.discountPrice }}</span> (Inclusive of all taxes)
+                </ng-container>
+        
+                <!-- If there's no discount, display the original price -->
+                <ng-container *ngIf="product.discountPrice === undefined || product.discountPrice >= product.price">
+                    <b>Price Each Pair:</b>
+                    <span style="background-color: red; color:white">{{ product.price }}</span> (Inclusive of all taxes)
+                </ng-container>
             </p>
+        </div>
+        <div class="ekart-product-detail-addtoCart">
+            <button class="btn-add-to-cart">ADD TO CART</button>
         </div>
         <div class="ekart-product-detail-size">
             <div style="padding: 5px 0px;border-bottom: #ccc 2px solid">
                 <h4>Available Size</h4>
             </div>
-            <diV style="margin-top: 20px">
-                <span class="ekart-product-detail-available-size">6</span>
-                <span class="ekart-product-detail-available-size">7</span>
-                <span class="ekart-product-detail-available-size">8</span>
-                <span class="ekart-product-detail-available-size">9</span>
-            </diV>                
+            <div style="margin-top: 20px">
+                  <!-- Loop over available sizes -->
+                <ng-container *ngFor="let size of availableSizes">
+                    <span class="ekart-product-detail-available-size">{{size}}</span>
+                </ng-container>
+           
+            </div>
         </div>
 
         <div class="ekart-product-detail-color">
             <div style="padding: 5px 0px;border-bottom: #ccc 2px solid">
                 <h4>Available Color</h4>
             </div>
-            <diV style="margin-top: 20px;">
-                <span class="ekart-product-detail-available-color" style="background-color: red;"></span>
-                <span class="ekart-product-detail-available-color" style="background-color: green;"></span>
+            <div style="margin-top: 20px;">
+                 <!-- Loop over available colors -->
+                <ng-container *ngFor="let color of availableColors">
+                 <span class="ekart-product-detail-available-color" [style.background-color]="color"></span>
+                </ng-container>
+                <!-- <span class="ekart-product-detail-available-color" style="background-color: green;"></span>
                 <span class="ekart-product-detail-available-color" style="background-color: black;"></span>
-                <span class="ekart-product-detail-available-color" style="background-color: blue;"></span>
-            </diV>                
+                <span class="ekart-product-detail-available-color" style="background-color: blue;"></span> -->
+            </div>
         </div>
 
         <div class="ekart-product-detail-desc">
@@ -51,12 +70,11 @@
                 <h4>Product Description</h4>
             </div>
             <div style="margin-top: 20px">
-                <p>DESCRIPTION</p>
-            </div>                
+        <p>{{ product.description}}</p>
+       
+            </div>
         </div>
     </div>
-    <div class="ekart-product-detail-addtoCart">
-        <button class="btn-add-to-cart">ADD TO CART</button>
-    </div>
+    
 </div>
 <div class="overlay"></div>

@@ -10,6 +10,7 @@ export class ProductListComponent {
              // Reference var on a component. Displaying details of a selected product once clicked.
             //  Check product.ts,product component,and product-list, the product specifications in product.ts originated here.
   selectedProduct: Product;
+  
   products = [
     {
       id: 1,
@@ -242,6 +243,7 @@ export class ProductListComponent {
       items_left: 4,
       imageURL: "/assets/running shoes.jpg",
       slug: "bridgport-advice"
+   
     },
     
     
