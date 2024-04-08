@@ -1,18 +1,35 @@
 <!-- Two way data binding .
 -->
 <!-- When the user types,it is also displayed in the view, using (input) & [value]=search text  or using ngModel-->
-<div class="ekart--search--product">
-    <!-- <input class="ekart-search-product-input"  [value]="searchText" (input)="updateSearchText($event)">  Or-->
-    <input class="ekart-search-product-input"   type="text" [(ngModel)]="enteredSearchValue" input="onSearchTextChanged()">
-     <button [ngClass]="{'btn': true, 'btn-search': enteredSearchValue, 'btn-search-disabled': !enteredSearchValue}" [disabled]="!enteredSearchValue">Search</button>
-    </div>
+<!-- <input class="ekart-search-product-input"  [value]="searchText" (input)="updateSearchText($event)">  Or-->
+
+                                    <!-- Implementing search functionality -->
+<!-- <div class="ekart--search--product">
+    <input class="ekart-search-product-input" [(ngModel)]="searchText" input="onSearchTextChanged()">
+    <button [ngClass]="{'btn': true, 'btn-search': searchText, 'btn-search-disabled': !searchText}"
+        [disabled]="!searchText">Search</button>
+</div>
 <div class="ekart-search-result-for">
-    <p *ngIf="enteredSearchValue!= ''"><strong>Search result for:</strong>{{ enteredSearchValue }}</p>
-    </div>
-   
+    <p *ngIf="searchText!= ''"><strong>Search result for:</strong>{{ searchText }}</p>
+</div> -->
+
 
 <!-- <div class="ekart-product-container-header"><h2>SHOES</h2></div> -->
 <!-- <div class="ekart--products--container "></div> -->
 
 
 <!-- false, '', null, undefined, 0 -->
+
+
+                                   <!-- Template Reference Variable. Search functionality when btn is clicked. 
+                                           A Template Reference Variable is a var which stores a reference to a DOM element,component or directive on which it is used.-->
+                                           <!-- The e.g below shows how template ref.var was used on a html element. -->
+<div class="ekart--search--product">
+    <input class="ekart-search-product-input"   #searchInput (input)="updateSearchText(searchInput)" >
+    <button class="btn btn-search" (click)="updateSearchText(searchInput)">Search</button>
+</div>
+<div class="ekart-search-result-for">
+    <p *ngIf="searchText!= ''"><strong>Search result for:</strong>{{ searchText }}</p>
+</div> 
+                                    <!--NB: (input)="updateSearchText(searchInput)" is added to the input field. This event will trigger the updateSearchText method whenever the user types into the input field.
+                                    (click)="onSearchTextChanged()" remains unchanged for the search button. -->

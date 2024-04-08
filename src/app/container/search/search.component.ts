@@ -1,33 +1,44 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter,Output  } from '@angular/core';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
 //searchText: string = ''; //We use property binding from component to view template.
- constructor() {}
+//  constructor() {}
 
- ngOnInit(): void {
+//  ngOnInit(): void {
    
- }
+//  }
 
-enteredSearchValue: string = ''; 
+searchText: string = ''; 
 
 //1.Create an event.
 //2.Raise the event,searchtextchanged
 
 @Output()
-searchTextChanged:EventEmitter<string> = new EventEmitter<string>();
+searchTextChanged:EventEmitter<string> = new EventEmitter<string>();          //Event
 
-onSearchTextChanged(){
-  this.searchTextChanged.emit(this.enteredSearchValue);
+                 //  onSearchTextChanged, search functionality when user starts typing without clicking the btn
+onSearchTextChanged(){             
+  this.searchTextChanged.emit(this.searchText);
 }
 
 // updateSearchText(event:any){
 //    this.searchText = event.target.value;
 // }
+
+                     // <!-- Template Reference Variable. Search functionality when btn is clicked. -->
+
+updateSearchText(InputEL: HTMLInputElement){                                  //the updateSearchText method will be called whenever the user types into the input field, updating the searchText property and emitting the searchTextChanged event with the updated value. This allows the parent component to react to the changes and perform search operations accordingly.
+  //  this.searchText = event.target.value;
+  // console.log(InputEL.value);
+  this.searchText = InputEL.value;
+  this.searchTextChanged.emit(this.searchText);
+  
+}
 }
 
 

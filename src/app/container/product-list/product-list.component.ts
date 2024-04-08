@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Product } from '../../Models/Product';
 
 @Component({
   selector: 'product-list',
@@ -6,6 +7,9 @@ import { Component, Input } from '@angular/core';
   styleUrl: './product-list.component.css'
 })
 export class ProductListComponent {
+             // Reference var on a component. Displaying details of a selected product once clicked.
+            //  Check product.ts,product component,and product-list, the product specifications in product.ts originated here.
+  selectedProduct: Product;
   products = [
     {
       id: 1,
@@ -246,13 +250,15 @@ export class ProductListComponent {
   totalProductInStock = this.products.filter( p => p.is_in_inventory === true).length;
   totalProductOutOfstock = this.products.filter( p => p.is_in_inventory === false).length;
   
+
+  @Input()
   searchText: string = '';
 
-  constructor() {}
+//   constructor() {}
 
- ngOnInit(): void {
+//  ngOnInit(): void {
    
- }
+//  }
   // @Input()
    //Create a property: string = '';
   // enteredSearchValue: string = '';
@@ -272,10 +278,10 @@ export class ProductListComponent {
 
   }
 
-  onSearchTextEntered(searchValue: string){
-    this.searchText = searchValue;
-    console.log(this.searchText);
-   }
+  // setSearchText(value: string){
+  //   this.searchText = value;
+  //   console.log(this.searchText);
+  //  }
 
 
 // getTotalProducts(){

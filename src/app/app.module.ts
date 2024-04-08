@@ -17,6 +17,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import { ProductListComponent } from './container/product-list/product-list.component';
 import { ProductComponent } from './container/product-list/product/product.component';
 import { FilterComponent } from './container/product-list/filter/filter.component';
+import { ProductDetailComponent } from './container/product-detail/product-detail.component';
 
 
 
@@ -34,7 +35,8 @@ import { FilterComponent } from './container/product-list/filter/filter.componen
         LayoutComponent,
         ProductListComponent,
         ProductComponent,
-        FilterComponent
+        FilterComponent,
+        ProductDetailComponent
     ],
        
     

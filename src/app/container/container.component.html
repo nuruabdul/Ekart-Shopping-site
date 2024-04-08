@@ -3,20 +3,25 @@
 
 <div class="ekart-product--container">
 
-<!-- <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>     -->
-   <!-- Event binding  -->
+<app-search (searchTextChanged) = "setSearchText($event)"></app-search>    
+   <!--Custom Event binding . 
+    Child to parent, @Output decorator
+     Search to Container-->
 
-  <product-list ></product-list>           
-     <!-- Property binding -->   
+  <product-list [searchText]="searchText" #productListComponent ></product-list>           >
+  <product-detail *ngIf="productListComponent.selectedProduct"></product-detail>
+     <!--Custom Property binding. -->
+        <!-- <!Parent to child @Input decorator
+               Container t product-list--  --> 
 
 
- <img [src]="product.pImage">
- <p>Name:{{product.name}}</p>   <!-- String interpolation -->
-<p>Price:{{'$' + product.price }}</p>
-<p>Color:{{ product.color}}</p>
+ <img [src]="item.pImage">
+ <p>Name:{{item.name}}</p>   <!-- String interpolation -->
+<p>Price:{{'$' + item.price }}</p>
+<p>Color:{{ item.color}}</p>
 <p>Discounted Price: {{ getDiscountedPrice().toFixed(2)}}</p>
-<p>{{ product.inStock > 0 ? 'Only' + product.inStock + 'items left': 'Not in Stock'}}</p>   
-<button [disabled]="!(product.inStock > 0)">Buy Now</button>   
+<p>{{item.inStock > 0 ? 'Only' + item.inStock + 'items left': 'Not in Stock'}}</p>   
+<button [disabled]="!(item.inStock > 0)">Buy Now</button>   
  <!--Property binding  -->
 <button (click)="decrementCartValue()">-</button>
 <span>{{ addToCart}}</span>
