@@ -18,6 +18,11 @@ import { ProductListComponent } from './container/product-list/product-list.comp
 import { ProductComponent } from './container/product-list/product/product.component';
 import { FilterComponent } from './container/product-list/filter/filter.component';
 import { ProductDetailComponent } from './container/product-detail/product-detail.component';
+import { ViewchildrenComponent } from './viewchildren/viewchildren.component';
+import { NgTemplateComponent } from './ng-template/ng-template.component';
+import { NgContainerComponent } from './ng-container/ng-container.component';
+import { FeaturedBrandsComponent } from './container/featured-brands/featured-brands.component';
+import { SetBackground } from './CustomDirectives/SetBackground directive';
 
 
 
@@ -36,7 +41,12 @@ import { ProductDetailComponent } from './container/product-detail/product-detai
         ProductListComponent,
         ProductComponent,
         FilterComponent,
-        ProductDetailComponent
+        ProductDetailComponent,
+        ViewchildrenComponent,
+        NgTemplateComponent,
+        NgContainerComponent,
+        FeaturedBrandsComponent,
+        SetBackground
     ],
        
     

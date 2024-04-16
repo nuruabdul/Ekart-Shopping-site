@@ -16,6 +16,27 @@
                Container t product-list--  --> 
 
 
+               <!-- ng-content -->
+               <div class="ekart-featured-products">
+                  <div class="ekart-featured-products-heading">
+                  <h1>Latest arrivals in popular brands</h1>
+                  </div>
+                
+                  <featured-brands>
+                     <h3 class="title">New arrivals in Adidas</h3>
+                     <button class="call-to-action">Show new arrivals in Adidas</button>
+                  </featured-brands>
+                  <featured-brands>
+                     <h3 class="title">New arrivals in Nike</h3>
+                     <button class="call-to-action">Show new arrivals in Nike </button>
+                  </featured-brands>
+                  <featured-brands>
+                     <h3 class="title">New arrivals in Raebok</h3>
+                     <button class="call-to-action">Show new arrivals in Raebok</button>
+                  </featured-brands>
+               </div>
+            </div>
+
  <img [src]="item.pImage">
  <p>Name:{{item.name}}</p>   <!-- String interpolation -->
 <p>Price:{{'$' + item.price }}</p>
@@ -33,7 +54,7 @@
    <p>Current element of array is: {{ item }}</p>
     </div>
   
-  </div>
+
 
 
 <!-- <input (input)="onNameChange($event)"><br>
